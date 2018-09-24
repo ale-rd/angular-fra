@@ -1,0 +1,13 @@
+Componente: Forma de crear nuevos tags
+Web component: Api para crear etiquetas html (no soportado por todos los navegadores)
+Composable: Se pueden llamar uno al otro (estructura de árbol)
+
+prefijo, para que no sea app
+ng new my-project --prefix=utn
+o configurar angular.json para que CLI lo haga por default
+..
+    ..
+        "prefix": "utn"
+
+inputs
+[]  padre -> hijo
