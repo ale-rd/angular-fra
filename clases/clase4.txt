@@ -1,0 +1,30 @@
+ENUM
+ng generate enum estado
+
+No crear clase, utilizar solo interfaz para curso, alumno, docente
+Interfaz como tipo de dato, no como definición de comportamiento
+
+Ejemplo @Output; EventEmitter
+https://toddmotto.com/component-events-event-emitter-output-angular-2
+
+## Built-in Directives
+<div *ngIf="false></div> // Reemplaza al ng-show
+ngSwitch
+ngFor (reemplaza al ngRepeat)
+ngStyle
+    <h2 [style.color]="'blue'">asd</h2>
+ngNonBindable
+
+
+
+
+### Servicio y HTTP
+ng generate service
+-> Agregar a providers
+-> injectar mediante el cosntructor (private)
+
+HttpClient
+
+callback -> promise -> RxJS: Observable
+
+http://jsonplaceholder.typicode.com/posts/1
