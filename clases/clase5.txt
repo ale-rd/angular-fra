@@ -1,0 +1,64 @@
+# Módulos y routing
+
+Modulo
+cli:
+ng g module 
+
+imports:
+BrowserModule 
+
+providers: servicios y factories
+
+- Core Module
+
+- Feature modules: páginas de la aplicación
+- Ver estructura de archivos
+
+exports: declara los componentes públicos para otros módulos (que puedan accederlos)
+
+# Generamos módulo items, submódulo de la applicación principal (app)
+    creamos componente items
+    ng g component items/items
+    Lo importamos en app.module
+
+## RouterModule
+-- En el app module
+-- Se suele usar un archivo aparte e importarlo en el app module
+path: nombre del recurso
+component: el componente que se va a renderizar cuando llamemos a ese recurso
+
+{ path: '', redirectTo: 'home', pathMatch: ''full' }
+Todos los path no definidos, matchean con 'home'
+
+router-outlet
+    en vez de app-root, y es el que se encarga de renderizar lo que solicitemos por URL
+
+// Links para que no recargue toda la página
+<a [routerLink]="[/home]"
+
+
+// Otra estrategia de ruteo
+// Otra estrategia de ruteo: Agrega /#/ a la URL. Sirve por si no tenemos permiso para definir las politicas del servidor
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+<!-- <base href="/subdominio/">
+       o se puede modificar desde el cli, al momento de buildear
+  -->
+
+
+##### EJERCICIOS #########
+Primera parte
+
+1. Crear el módulo shared para implementar componentes comunes.
+2. Crear el módulo core para implementar servicios comunes.
+3. Crear un módulo para declarar los componentes relacionados a cursos.
+4. Mover el componente curso al módulo de curso.
+5. Crear un componente para mostrar el listado de cursos.
+6. Rutear el listado de cursos.
+7. Rutear el detalle de cursos.
+8. Crear un componente menú para el app.component.ts.
+9. Crear un servicio para obtener los recursos de tipo Curso de la API.
+10. Crear un método para obtener el listado desde el servicio HTTP.
+11 Revisar que la interface Curso tenga declarados todos los campos necesarios.
+12. Crear un método para obtener el detalle, filtrando con .filter(). /// NO CON .map
+13. Desde el listado de cursos, llamar al método para obtener cursos y mostrarlos en el template.
+14. Desde el detalle de cursos, obtener el parámetro para buscar el curso asociado al ID recibido. Mostrar en el template.
