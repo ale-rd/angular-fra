@@ -1,0 +1,30 @@
+Descargar SLACK 
+http bit.ly/ngslacklsl
+fernandora
+https://angular-lsl-utn-fra.slack.com
+
+user & pass: webjavascript
+
+Visual studio: Hecho en electron (browser embebido)
+
+Instalar Angular CLI
+
+>ng new mi-primera-app
+  Descarga un package.json de npm, con dependencias de angular predefinidas.
+cd mi-priemra-app
+ng serve
+
+src -> Toda la arquitectura de la app
+index.html -> app-root: donde comienza a renderizarse la aplicación
+app-root: componente por defecto (app.component)
+app.component.css solo afecta a app.component.html (pone prefijos a las clases de css)
+
+main.js -> app
+vendr -> proveedores
+styles -> css
+polyfills -> soporte para navegadores antiguos, especialmente ie 9, 10 y 11 (ver polyfills.ts)
+runtime  -> detector de cambios
+
+#CLI
+ng generate component mi-componente
+// generate = g
