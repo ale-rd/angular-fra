@@ -1,0 +1,110 @@
+6??
+
+estructura de archivos
+
+/app
+  appmodule.ts
+  approuting.ts
+  app.component.ts
+
+  [ ] model -> interfaces
+  [ ] core
+  [ ] shared
+  [ ] feature1
+  [ ] feature2
+  ...
+
+
+        en la web
+        app-component
+        <menu></menu>
+        <router-outlet></router-outlet>
+        <footer></footer>
+[] cursos-module
+  [] cursos
+    [] curso-item
+  [] curso
+
+<!-- Para poder captar el evento emitido, ya que solo puede el padre -->
+<!-- <app-curso-item *ngFor="let curso of cursos" [curso]="curso"></app-curso>
+    <a [routerLink]="['/curso',curso.id]"></a> -->
+
+
+cuando obtenemos datos del http ya no es necesario hacer el .map ( response => response.json())
+
+private _getCursos(): Observable<ICurso[]>{
+    return this.http.get('http......').pipe(
+        map( (response: Array<ICurso> => {
+            curso.fechaInicio = new Date( curso.fechaInicio);
+            curso.fechaFin = new Date(curso.fechaFin);
+            return curso;
+        }));
+    )
+}
+
+
+<!-- Para poder captar el evento emitido, ya que solo puede el padre -->
+<!-- <app-curso-item *ngFor="let curso of cursos" [curso]="curso"></app-curso>
+    <a [routerLink]="['/curso',curso.id]"></a> -->
+
+  <a [routerLink]="['/curso',curso.codigo]"></a>
+
+
+cursos-list
+    <a "" ... -> curso/:codigo (que redirije a componente CursoComponent)
+
+CursoComponent está dentro del módulo de cursos
+    -> es padre del elemento CursoItemComponent
+
+
+
+css
+selector :host -> apunta a la etiqueta html que se genera con cada componente (selector)
+:host ( .selectorMasEspecifico )
+
+:host {
+    display: block; // para que el navegador entienda que es un bloque
+}
+
+
+para que el browser no cachee:
+ al final de cada include de javascript en el index, puedo incluir una versión
+  .. .js?v=0.1
+  y cambiarla con cada deploy
+
+
+
+
+
+
+
+
+
+  ### FORMULARIOS ###
+Componentes principales
+  FormControls: Sirve para encapsular todos los inputs del formulario, agregar métodos y propiedades
+  (no forma parte del core)
+  Validators
+  Observables
+
+  Tipos de FORMULARIOS
+    Template Driven Forms: Agregarle funcionalidad a los formularios nativos de HTML.
+      NgForm
+        <form #f="ngForm" // guarda la referencia del forgroup que creó en una variable f.
+          //ej uso:
+           (ngSubmite)="onSubmit(f.value)">
+        </form>
+      ngModel:(directiva) encapsula el input en un FormControl (el nombre del atributo será el name)
+      ngModel <> FormControl, no son lo mismo
+    Reactive Forms: Crear los formularios desde los controladores. Piensa el formulario como una estructura de datos.
+    factory de Formgrup y FormControl
+    Utiliza FormBuilder -> declaramos los atributos como arrays porque podemos pasarle un validador como 2do parámetro.
+    para mapear cada uno de los campos usamos la directiva [formControl]
+    ej [formControl]="myForm.controls['name]"
+      FormGroup: Agrupa los FormControl
+        formGroup.value (clave: valor) ->[nombreInput: valorInput]
+                .errors
+                .valid
+                .dirty
+      FormControl
+        atributos booleanos: .valid, .dirty (para saber si el usuario ya operó con ese input)
