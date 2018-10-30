@@ -1,0 +1,67 @@
+### FORMULARIOS
+proyecto
+componente
+formulario
+    nombre, apellido, mail
+
+[disabled]="formDisabled"
+
+.touched para que el mensaje no se muestre siempre
+
+directiva email para validar mail
+Siempre poner el atributo name
+
+propiedades
+abstract control angular
+
+
+## Reactive form
+<form
+ [formGroup]="myForm"
+ (ngSubmit)="onSubmit( myForm.value )">
+  <input
+  type="text"
+  id="nombreInput"
+  placeholder="nombre" 
+  name="nombre"  <!-- No es necesario, la idea es que esté todo en el controler -->
+  [formControl]="myForm.controls['nombre']">
+
+Clase Validators
+
+
+para setear valores
+.setValue({ objeto con TODOS los key:value})
+.patchValue( para un solo key-value)
+(hay más, ver ppt)
+
+En formularios reactivos no es recomendable usar condiciones en [disabled], por un tema con la detección de cambio
+
+Se puede usar doble bindeo
+<input type="text" name="nombre" [(ngModel)]="nombre">
+
+# CSS
+ViewEncapsulation.Emulated (encapsulación emulada): Funciona en todos los navegadores
+ViewEncapsulation.Sawdo: Propia de angular, no funciona en todos los navegadores
+
+# SASS
+Precompilador de CSS
+ng new my-project --style=scc
+para que las hojas de estilo que genere el CLI sean de sass
+sino agregarlo posteriormente al angular.json
+...
+    "schematics":{
+        "@schematics/angular:component":{
+            "styleext":"scss"
+        }
+    }
+    
+en angular.json: carpeta donde están nuestros archivos de variables sass, para luego poder importarlo con @Import
+    stylePreprocessorOptions:{
+        "includePaths":[
+            "src/styles/main"
+        ]
+    }
+
+
+
+Ver diferencia entre constructor y ngOnInit en blog  (clase 4)
