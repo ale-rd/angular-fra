@@ -14,6 +14,7 @@ import { MiComponenteComponent } from './mi-componente/mi-componente.component';
 import { ItemsComponent } from './items/items/items.component';
 import { ItemComponent } from './items/item/item.component';
 import { HomeComponent } from './home/home/home.component';
+import { ObservComponent } from './observ/observ.component';
 
 const ROUTES: Routes = [
   {path: "", redirectTo: "home", pathMatch: "full"},
@@ -27,7 +28,8 @@ const ROUTES: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    MiComponenteComponent
+    MiComponenteComponent,
+    ObservComponent
   ],
   imports: [
     BrowserModule,

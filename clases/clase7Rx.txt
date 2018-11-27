@@ -1,0 +1,66 @@
+RxJS
+Implementación para javascript de reactive X
+
+En angular, cualquier operación asincrónica se maneja con un observer. También las sincrónicas
+
+Observable // Implementa generics
+// El signo $ al final del nombre es una convención para definir que es un observable
+observer
+    next: lo que ejecuta cuando el observable le da la siguiente respuesta
+    error:'''' le da un error
+    complete
+las 3 son opcionales
+ver observ.component
+
+# Observable desde datos existentes
+    of(1,2,3,5,1,2,...) 
+    por cada valor que le pasamos hace un next, y al finalizar lanza un complete()
+    // Tiene otras 10 sobrecagas de método
+
+    from()
+
+# Operators
+Permiten realizar operaciones con datos producidos a través de observables.
+
+# Marble diagrams
+    Muestra información sobre el resultado sobre el tiempo del stream al pasar por el operator
+
+.pipe( // para concatenar operators)
+
+#Operator take: Indica cuantos datos recibiremos del stream, luego ejecuta el complete();
+// Ej: Ejecuta 4 veces next();
+source$.pipe( 
+    take(4);
+)
+#Operator takeUntil($event);
+#tap: por cada valor streameado ejecutamos una función, pero no afecta en nada a los valores del observable
+     (sirve más que nada para desarrollo)
+
+### VER WEB RXMARBLES.com  - Referencia de los observables y operators
+    Whic operator to use? (referencias, en github)
+
+
+## Subject: A diferencia del observable, es una sola instancia.
+    observer que puede actuar como observable
+    Implementa observer (tiene next, error y complete)
+    Es hijo de observable, tiene subscribe()
+    tiene una lista de observers: observers[]
+    Llama al next, error o complete de todos los elementos de la lista CON EL MISMO VALOR
+    suscribirse varias veces no modifica el valor original del stream (a diferencia de un observable común)
+
+## Cold observable
+    los valores se producen dentro del mismo observable
+    existe solo un observer por ejecución
+## Hot observable
+    el productor del valor está fuera del observable
+
+
+## Para TP: Trabajar con listado de alumno inscriptos. Usamos un mock (que pasa el profesor)
+    Crear componentes listado y detalle.
+    De la clase pasada, agregar estado y mensajes de error al formulario. Validar submit, que el formulario sea válido
+    Modificar css en base de los estados.
+
+
+
+
+param a observable
