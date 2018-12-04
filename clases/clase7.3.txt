@@ -1,0 +1,24 @@
+https://github.com/angular-lsl-utn/blog/blob/master/tp/ejercicio-06.md
+Carpeta compartida (alumno-alumno)
+smb://pdc/material
+
+ https://blog.angular-university.io/how-to-build-angular2-apps-using-rxjs-observable-data-services-pitfalls-to-avoid/
+
+Mocks: (en esta clase usamos /alumnos)
+Listado de cursos https://demo3744158.mockable.io/cursos
+Listado de alumnos https://demo3744158.mockable.io/alumnos
+POST genérico https://demo3744158.mockable.io/alumno
+PUT genérico https://demo3744158.mockable.io/alumno
+DELETE genérico https://demo3744158.mockable.io/alumno
+
+Para compilar (genera la página web)
+ng build 
+
+testear con XAMPP
+
+Para compilar y ver que estén correctas las dependencias
+ng build --prod
+
+En el sitio donde publicamos tenemos la carpeta
+/public_Html
+si tengo la app en la carpeta /sitio debo poner en el index.html, en base, /sitio

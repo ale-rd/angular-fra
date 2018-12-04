@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { ItemsModule } from './items/items.module';
 import { HomeModule } from './home/home.module';
 import { Routes, RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 // Otra estrategia de ruteo: Agrega /#/ a la URL. Sirve por si no tenemos permiso para definir las politicas del servidor
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
@@ -15,6 +16,7 @@ import { ItemsComponent } from './items/items/items.component';
 import { ItemComponent } from './items/item/item.component';
 import { HomeComponent } from './home/home/home.component';
 import { ObservComponent } from './observ/observ.component';
+import { AsyncComponent } from './async/async.component';
 
 const ROUTES: Routes = [
   {path: "", redirectTo: "home", pathMatch: "full"},
@@ -29,13 +31,15 @@ const ROUTES: Routes = [
   declarations: [
     AppComponent,
     MiComponenteComponent,
-    ObservComponent
+    ObservComponent,
+    AsyncComponent
   ],
   imports: [
     BrowserModule,
     ItemsModule,
     HomeModule,
-    RouterModule.forRoot( ROUTES )
+    RouterModule.forRoot( ROUTES ),
+    HttpClientModule
   ],
   providers: [{
     provide: LocationStrategy,
